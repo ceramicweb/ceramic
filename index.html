@@ -1,493 +1,819 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="pt-BR">
 <head>
-  <title>Ceramic </title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-
-  <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,700" rel="stylesheet">
-  <link rel="stylesheet" href="fonts/icomoon/style.css">
-
-  <link rel="stylesheet" href="css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/jquery-ui.css">
-  <link rel="stylesheet" href="css/owl.carousel.min.css">
-  <link rel="stylesheet" href="css/owl.theme.default.min.css">
-  <link rel="stylesheet" href="css/owl.theme.default.min.css">
-
-  <link rel="stylesheet" href="css/jquery.fancybox.min.css">
-
-  <link rel="stylesheet" href="css/bootstrap-datepicker.css">
-
-  <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
-
-  <link rel="stylesheet" href="css/aos.css">
-
-  <link rel="stylesheet" href="css/style.css">
-
-  <script src="https://smtpjs.com/v3/smtp.js"></script>
-  <script type="text/javascript">
-    function sendEmail() {
-      Email.send({
-        Host: "smtp.gmail.com",
-        Username: "<sender’s email address>",
-        Password: "<email password>",
-        To: '<recipient’s email address>',
-        From: "<sender’s email address>",
-        Subject: "<email subject>",
-        Body: "<email body>",
-      })
-        .then(function (message) {
-          alert("mail sent successfully")
-        });
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Trivy Fábrica — Planos e Investimento</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --brand-red: #c41e1a;
+      --brand-blue: #0d3d66;
+      --accent: #1a5fc4;
+      --accent-soft: #e8f1fc;
+      --bg: #f4f7fb;
+      --surface: #ffffff;
+      --text: #0f172a;
+      --muted: #5c6b82;
+      --border: #d5dee8;
+      --ok: #15803d;
+      --radius: 14px;
+      --font: 'Inter', system-ui, -apple-system, sans-serif;
     }
-  </script>
 
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font);
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.55;
+      font-size: 15px;
+    }
+
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+    /* —— Hero —— */
+    .hero {
+      background:
+        radial-gradient(1200px 500px at 10% -10%, rgba(196, 30, 26, 0.08), transparent 55%),
+        radial-gradient(900px 480px at 90% 0%, rgba(26, 95, 196, 0.12), transparent 50%),
+        linear-gradient(180deg, #0b1524 0%, #12233a 100%);
+      color: #e8eef8;
+      padding: 40px 0 56px;
+    }
+    .hero-top {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 24px; margin-bottom: 40px; flex-wrap: wrap;
+    }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .brand-mark {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 14px;
+      border-radius: 12px;
+      background: #fff;
+      box-shadow: 0 1px 0 rgba(255,255,255,0.12), 0 8px 24px rgba(0,0,0,0.25);
+    }
+    .brand-mark img {
+      display: block;
+      height: 36px;
+      width: auto;
+    }
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 2px;
+      min-width: 0;
+      line-height: 1.1;
+    }
+    .brand-name {
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: #ffffff;
+      line-height: 1;
+    }
+    .brand-tag {
+      display: block;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      color: #a8bdd4;
+      white-space: nowrap;
+    }
+    .hero-meta { text-align: right; font-size: 13px; color: #8a9bb3; }
+    .hero-meta strong { display: block; color: #c5d4e8; font-weight: 600; margin-bottom: 2px; }
+
+    .hero h1 {
+      font-size: clamp(28px, 4vw, 40px);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      max-width: 16ch;
+      margin-bottom: 14px;
+    }
+    .hero-lead {
+      font-size: 17px; color: #b8c7db; max-width: 42ch; margin-bottom: 28px;
+    }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 12px 20px; border-radius: 10px; font-weight: 600; font-size: 14px;
+      text-decoration: none; border: 1px solid transparent; cursor: pointer;
+      font-family: inherit;
+    }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-primary:hover { filter: brightness(1.06); }
+    .btn-ghost {
+      background: transparent; color: #d5e2f2;
+      border-color: rgba(213, 222, 232, 0.28);
+    }
+
+    /* —— Sections —— */
+    section { padding: 56px 0; }
+    section.alt { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .section-kicker {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 10px;
+    }
+    .section-title {
+      font-size: 26px; font-weight: 800; letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+    .section-sub { color: var(--muted); max-width: 54ch; margin-bottom: 32px; }
+
+    /* —— Plans —— */
+    .plans {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 12px;
+      align-items: stretch;
+    }
+    @media (max-width: 1100px) {
+      .plans { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 720px) {
+      .plans { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 520px) {
+      .plans { grid-template-columns: 1fr; }
+    }
+    .plan {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px 20px 24px;
+      display: flex; flex-direction: column; gap: 14px;
+      position: relative;
+    }
+    .plan.featured {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 1px var(--accent);
+      background: linear-gradient(180deg, #f7fbff 0%, #fff 40%);
+    }
+    .plan-badge {
+      position: absolute; top: -11px; left: 18px;
+      background: var(--accent); color: #fff;
+      font-size: 11px; font-weight: 700; letter-spacing: 0.04em;
+      text-transform: uppercase; padding: 4px 10px; border-radius: 999px;
+    }
+    .plan-name { font-size: 18px; font-weight: 800; letter-spacing: -0.02em; }
+    .plan-desc { font-size: 13px; color: var(--muted); min-height: 3.2em; }
+    .plan-price {
+      display: flex; align-items: baseline; gap: 4px; flex-wrap: wrap;
+    }
+    .plan-price .value {
+      font-size: 26px; font-weight: 800; letter-spacing: -0.03em; color: var(--brand-blue);
+    }
+    .plan-price .unit { font-size: 12px; color: var(--muted); font-weight: 500; }
+    @media (min-width: 1101px) {
+      .plan { padding: 18px 14px 20px; gap: 12px; }
+      .plan-name { font-size: 16px; }
+      .plan-desc { font-size: 12px; min-height: 3.6em; }
+      .plan-list { font-size: 12px; gap: 6px; }
+    }
+    .plan-anual { font-size: 12px; color: var(--muted); }
+    .plan-anual strong { color: var(--ok); font-weight: 600; }
+    .plan-meta {
+      font-size: 12px; color: var(--muted);
+      padding-top: 10px; border-top: 1px solid var(--border);
+      display: grid; gap: 4px;
+    }
+    .plan-meta span strong { color: var(--text); font-weight: 600; }
+    .plan-list {
+      list-style: none; display: grid; gap: 8px;
+      font-size: 13px; flex: 1;
+    }
+    .plan-list li {
+      display: grid; grid-template-columns: 16px 1fr; gap: 8px;
+      align-items: start;
+    }
+    .plan-list li::before {
+      content: '';
+      width: 16px; height: 16px; margin-top: 2px;
+      background: var(--accent-soft);
+      border-radius: 50%;
+      box-shadow: inset 0 0 0 4px var(--accent);
+    }
+    .plan-cta { margin-top: auto; }
+    .plan-cta .btn { width: 100%; }
+    .btn-outline {
+      background: transparent; color: var(--brand-blue);
+      border-color: var(--border);
+    }
+    .plan.featured .btn-outline {
+      background: var(--accent); color: #fff; border-color: var(--accent);
+    }
+
+    /* —— Modules —— */
+    .modules {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    @media (max-width: 800px) {
+      .modules { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 520px) {
+      .modules { grid-template-columns: 1fr; }
+    }
+    .mod {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px 16px;
+    }
+    .mod h3 {
+      font-size: 14px; font-weight: 700; margin-bottom: 6px;
+      color: var(--brand-blue);
+    }
+    .mod p { font-size: 13px; color: var(--muted); }
+
+    /* —— Quem somos —— */
+    .about-story {
+      max-width: 720px;
+      margin-bottom: 36px;
+    }
+    .about-story p {
+      font-size: 15px;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+    .about-story p:last-child { margin-bottom: 0; }
+    .about-pillars {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+    @media (max-width: 800px) {
+      .about-pillars { grid-template-columns: 1fr; }
+    }
+    .pillar {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px 20px;
+      border-top: 3px solid var(--accent);
+    }
+    .pillar-step {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    .pillar h3 {
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--brand-blue);
+      margin-bottom: 10px;
+    }
+    .pillar p {
+      font-size: 13px;
+      color: var(--muted);
+      margin: 0;
+    }
+    .about-team {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    @media (max-width: 700px) {
+      .about-team { grid-template-columns: 1fr; }
+    }
+    .team-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px;
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+    }
+    .team-photo {
+      width: 88px;
+      height: 88px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+      border: 3px solid var(--accent-soft);
+      background: var(--accent-soft);
+    }
+    .team-card h3 {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--brand-blue);
+      margin-bottom: 2px;
+    }
+    .team-role {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+    .team-card p {
+      font-size: 13px;
+      color: var(--muted);
+      margin: 0;
+    }
+    .about-facts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 18px;
+      margin: 28px 0 0;
+      padding-top: 22px;
+      border-top: 1px solid var(--border);
+    }
+    .about-fact {
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .about-fact strong {
+      color: var(--brand-blue);
+      font-weight: 700;
+    }
+
+    /* —— Addons + impl —— */
+    .split {
+      display: grid; grid-template-columns: 1.2fr 1fr; gap: 20px;
+    }
+    @media (max-width: 800px) {
+      .split { grid-template-columns: 1fr; }
+    }
+    .panel {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+    }
+    .panel h3 {
+      font-size: 16px; font-weight: 700; margin-bottom: 14px;
+    }
+    table.simple {
+      width: 100%; border-collapse: collapse; font-size: 13px;
+    }
+    table.simple th {
+      text-align: left; font-size: 11px; text-transform: uppercase;
+      letter-spacing: 0.06em; color: var(--muted); font-weight: 600;
+      padding: 8px 0; border-bottom: 1px solid var(--border);
+    }
+    table.simple td {
+      padding: 10px 0; border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+    table.simple tr:last-child td { border-bottom: none; }
+    table.simple .price { font-weight: 700; color: var(--brand-blue); white-space: nowrap; }
+
+    .note-list { list-style: none; display: grid; gap: 10px; font-size: 13px; color: var(--muted); }
+    .note-list li { padding-left: 14px; border-left: 3px solid var(--accent-soft); }
+
+    /* —— CTA final —— */
+    .cta {
+      background: var(--brand-blue);
+      color: #e8eef8;
+      border-radius: 18px;
+      padding: 36px 32px;
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 24px; flex-wrap: wrap;
+    }
+    .cta h2 { font-size: 24px; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 6px; }
+    .cta p { color: #b8c7db; max-width: 40ch; font-size: 14px; }
+    .cta .btn-primary { background: #fff; color: var(--brand-blue); }
+
+    footer {
+      padding: 28px 0 40px;
+      font-size: 12px; color: var(--muted);
+      display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+    }
+
+    @media print {
+      .hero { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .btn, .hero-actions { display: none !important; }
+      section { padding: 28px 0; break-inside: avoid; }
+      .plan.featured { box-shadow: none; }
+      body { background: #fff; }
+    }
+  </style>
 </head>
-
-<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
-
-
-  <div id="overlayer"></div>
-  <div class="loader">
-    <div class="spinner-border text-primary" role="status">
-      <span class="sr-only">Loading...</span>
-    </div>
-  </div>
-
-  <div class="site-wrap" id="home-section">
-
-    <div class="site-mobile-menu site-navbar-target">
-      <div class="site-mobile-menu-header">
-        <div class="site-mobile-menu-close mt-3">
-          <span class="icon-close2 js-menu-toggle"></span>
+<body>
+  <header class="hero">
+    <div class="wrap">
+      <div class="hero-top">
+        <div class="brand" aria-label="Trivy Fábrica">
+          <div class="brand-mark">
+            <img src="logo-trivy.png" alt="Trivy" />
+          </div>
+          <div class="brand-text">
+            <span class="brand-name">Fábrica</span>
+            <span class="brand-tag">Gestão industrial</span>
+          </div>
         </div>
-      </div>
-      <div class="site-mobile-menu-body"></div>
-    </div>
-
-
-    <header class="site-navbar py-4 js-sticky-header site-navbar-target" role="banner">
-
-      <div class="container">
-        <div class="row align-items-center">
-
-          <div class="col-6 col-md-3 col-xl-4  d-block">
-            <h1 class="mb-0 site-logo"><a href="index.html" class="text-black h2 mb-0">Ceramic<span
-                  class="text-primary">.</span> </a></h1>
-          </div>
-
-          <div class="col-12 col-md-9 col-xl-8 main-menu">
-            <nav class="site-navigation position-relative text-right" role="navigation">
-
-              <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block ml-0 pl-0">
-                <li><a href="#home-section" class="nav-link">Início</a></li>
-                <li><a href="#features-section" class="nav-link">Módulos</a></li>
-                <li class="has-children">
-                  <a href="#about-section" class="nav-link">Sobre</a>
-                  <ul class="dropdown arrow-top">
-                    <li><a href="#our-team-section" class="nav-link">Nossa Equipe</a></li>
-                  </ul>
-                </li>
-                <!-- <li><a href="#testimonials-section" class="nav-link">Relatos de clientes</a></li> -->
-                <li><a href="#contact-section" class="nav-link">Contato</a></li>
-              </ul>
-            </nav>
-          </div>
-
-
-          <div class="col-6 col-md-9 d-inline-block d-lg-none ml-md-0"><a href="#"
-              class="site-menu-toggle js-menu-toggle text-black float-right"><span class="icon-menu h3"></span></a>
-          </div>
-
+        <div class="hero-meta">
+          <strong>Proposta comercial</strong>
+          Gestão para indústrias cerâmicas<br />
+          + emissão fiscal integrada
         </div>
       </div>
 
-    </header>
+      <h1>Planos pensados para a sua cerâmica</h1>
+      <p class="hero-lead">
+        Do comercial ao forno, do estoque à nota fiscal — um sistema só,
+        com implantação objetiva e mensalidade previsível.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#planos">Ver planos</a>
+        <a class="btn btn-ghost" href="#quem-somos">Quem somos</a>
+        <a class="btn btn-ghost" href="https://wa.me/5584996600158?text=Ol%C3%A1!%20Gostaria%20de%20uma%20proposta%20da%20Trivy%20F%C3%A1brica." target="_blank" rel="noopener noreferrer">Falar com a Trivy</a>
+      </div>
+    </div>
+  </header>
 
+  <section id="planos">
+    <div class="wrap">
+      <div class="section-kicker">Investimento</div>
+      <h2 class="section-title">Escolha o plano ideal</h2>
+      <p class="section-sub">
+        Valores mensais em real. No pagamento anual antecipado você ganha
+        o equivalente a <strong>2 mensalidades</strong> (paga 10, usa 12).
+        Implantação única, com treinamento remoto incluso conforme o plano.
+      </p>
 
-    <div class="site-blocks-cover" style="overflow: hidden;">
-      <div class="container">
-        <div class="row align-items-center justify-content-center">
-
-          <div class="col-md-12" style="position: relative;" data-aos="fade-up" data-aos-delay="200">
-            <img src="images/ceramic-images/ceramic-cover.jpeg" alt="Image" class="img-fluid img-absolute">
-
-            <div class="row mb-4" data-aos="fade-up" data-aos-delay="200">
-              <div class="col-lg-6 mr-auto">
-                <h1>Torne seu negócio mais dinâmico</h1>
-                <p class="mb-5">Tenha o controle da sua empresa na palma da sua mão de maneira rápida, prática e dinâmica.</p>
-                <div>
-                  <a href="#features-section" class="btn btn-primary mr-2 mb-2">Saiba mais</a>
-                </div>
-              </div>
-
-
-            </div>
-
+      <div class="plans">
+        <!-- Essencial ≈ Bronze enxuto: escritório sem fábrica -->
+        <article class="plan">
+          <div>
+            <div class="plan-name">Essencial</div>
+            <p class="plan-desc">Olaria em crescimento — vendas, estoque e cobrança sob controle.</p>
           </div>
+          <div>
+            <div class="plan-price">
+              <span class="value">R$&nbsp;289,90</span>
+              <span class="unit">/mês</span>
+            </div>
+            <div class="plan-anual">Anual: <strong>R$ 241,58/mês</strong> (R$ 2.899/ano)</div>
+          </div>
+          <div class="plan-meta">
+            <span><strong>3</strong> usuários · <strong>1</strong> CNPJ</span>
+            <span>Implantação <strong>R$ 990</strong></span>
+          </div>
+          <ul class="plan-list">
+            <li>Clientes, produtos e tabelas de preço</li>
+            <li>Vendas, orçamentos e entregas</li>
+            <li>Estoque de produtos</li>
+            <li>Contas a pagar e a receber</li>
+            <li>Formas de pagamento e usuários</li>
+            <li>2 treinamentos por vídeo</li>
+          </ul>
+          <div class="plan-cta"><a class="btn btn-outline" href="#contato">Solicitar proposta</a></div>
+        </article>
+
+        <!-- Gestão ≈ Bronze+ : comercial + logística + fiscal base -->
+        <article class="plan">
+          <div>
+            <div class="plan-name">Gestão</div>
+            <p class="plan-desc">Centraliza escritório e pátio — logística, compras e emissão fiscal.</p>
+          </div>
+          <div>
+            <div class="plan-price">
+              <span class="value">R$&nbsp;489,90</span>
+              <span class="unit">/mês</span>
+            </div>
+            <div class="plan-anual">Anual: <strong>R$ 408,25/mês</strong> (R$ 4.899/ano)</div>
+          </div>
+          <div class="plan-meta">
+            <span><strong>8</strong> usuários · <strong>1</strong> CNPJ</span>
+            <span>Implantação <strong>R$ 1.490</strong></span>
+          </div>
+          <ul class="plan-list">
+            <li>Tudo do Essencial</li>
+            <li>Cartas-frete, frota e abastecimentos</li>
+            <li>Fornecedores, compras e XML</li>
+            <li>Insumos (almoxarifado) e inventário</li>
+            <li>Cheques, créditos, caixa e fluxo</li>
+            <li>NF-e / NFC-e + DANFE</li>
+            <li>Agenda, RH e manutenção</li>
+          </ul>
+          <div class="plan-cta"><a class="btn btn-outline" href="#contato">Solicitar proposta</a></div>
+        </article>
+
+        <!-- Indústria ≈ Prata (mais escolhido): produção fornos -->
+        <article class="plan featured">
+          <span class="plan-badge">Mais escolhido</span>
+          <div>
+            <div class="plan-name">Indústria</div>
+            <p class="plan-desc">Fábrica completa — extrusão, fornos intermitentes, queima e desenforno.</p>
+          </div>
+          <div>
+            <div class="plan-price">
+              <span class="value">R$&nbsp;689,90</span>
+              <span class="unit">/mês</span>
+            </div>
+            <div class="plan-anual">Anual: <strong>R$ 574,92/mês</strong> (R$ 6.899/ano)</div>
+          </div>
+          <div class="plan-meta">
+            <span><strong>15</strong> usuários · <strong>1</strong> CNPJ</span>
+            <span>Implantação <strong>R$ 2.490</strong></span>
+          </div>
+          <ul class="plan-list">
+            <li>Tudo do Gestão</li>
+            <li>Modelagem / extrusão e linhas</li>
+            <li>Queima / fornos intermitentes</li>
+            <li>Enforno, desenforno e insumos de queima</li>
+            <li>Estiva e pagamento por atividade</li>
+            <li>Indicadores de produção</li>
+            <li>3 treinamentos por vídeo</li>
+          </ul>
+          <div class="plan-cta"><a class="btn btn-outline" href="#contato">Começar com Indústria</a></div>
+        </article>
+
+        <!-- Completo ≈ Ouro: multi-CNPJ + análise / recursos difíceis -->
+        <article class="plan">
+          <div>
+            <div class="plan-name">Completo</div>
+            <p class="plan-desc">Indústria maior — multi-unidade, controladoria e operação avançada.</p>
+          </div>
+          <div>
+            <div class="plan-price">
+              <span class="value">R$&nbsp;789,90</span>
+              <span class="unit">/mês</span>
+            </div>
+            <div class="plan-anual">Anual: <strong>R$ 658,25/mês</strong> (R$ 7.899/ano)</div>
+          </div>
+          <div class="plan-meta">
+            <span><strong>25</strong> usuários · <strong>3</strong> CNPJs</span>
+            <span>Implantação <strong>R$ 2.990</strong></span>
+          </div>
+          <ul class="plan-list">
+            <li>Tudo do Indústria</li>
+            <li>Até 3 CNPJs / unidades</li>
+            <li>Painéis, lucratividade e centro de custo</li>
+            <li>Projeção de caixa e factoring</li>
+            <li>Frete retorno e locação de equipamentos</li>
+            <li>Homem × tijolo (mão de obra)</li>
+            <li>CT-e e MDF-e</li>
+            <li>Participação no roadmap de melhorias</li>
+          </ul>
+          <div class="plan-cta"><a class="btn btn-outline" href="#contato">Solicitar proposta</a></div>
+        </article>
+
+        <!-- Grupo ≈ Diamante: personalização, RKW, qualidade, escala -->
+        <article class="plan">
+          <div>
+            <div class="plan-name">Grupo</div>
+            <p class="plan-desc">Escala e personalização — custo industrial, qualidade e multi-fábrica.</p>
+          </div>
+          <div>
+            <div class="plan-price">
+              <span class="value">R$&nbsp;999,90</span>
+              <span class="unit">/mês</span>
+            </div>
+            <div class="plan-anual">Anual: <strong>R$ 833,25/mês</strong> (R$ 9.999/ano)</div>
+          </div>
+          <div class="plan-meta">
+            <span><strong>40</strong> usuários · <strong>5</strong> CNPJs</span>
+            <span>Implantação <strong>sob projeto</strong></span>
+          </div>
+          <ul class="plan-list">
+            <li>Tudo do Completo</li>
+            <li>RKW — custo industrial por período</li>
+            <li>Consolidação entre unidades</li>
+            <li>PSQ / qualidade e 2ª linha</li>
+            <li>Trivy Flow — ponto e escalas</li>
+            <li>Exportação contábil / portal do contador</li>
+            <li>API e customizações sob orçamento</li>
+            <li>Suporte prioritário e onboarding dedicado</li>
+          </ul>
+          <div class="plan-cta"><a class="btn btn-outline" href="#contato">Solicitar proposta</a></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt" id="modulos">
+    <div class="wrap">
+      <div class="section-kicker">O que você opera</div>
+      <h2 class="section-title">Módulos da plataforma</h2>
+      <p class="section-sub">
+        Um único ambiente web — comercial, fábrica, estoque, financeiro e fiscal —
+        com a identidade Trivy.
+      </p>
+      <div class="modules">
+        <div class="mod">
+          <h3>Comercial</h3>
+          <p>Clientes, produtos, tabelas, pedidos, orçamentos e entregas.</p>
+        </div>
+        <div class="mod">
+          <h3>Logística</h3>
+          <p>Cartas-frete, frota, vendedores e controle de abastecimentos.</p>
+        </div>
+        <div class="mod">
+          <h3>Compras e estoque</h3>
+          <p>Fornecedores, compras, insumos, inventário e importação de XML.</p>
+        </div>
+        <div class="mod">
+          <h3>Financeiro</h3>
+          <p>Contas a pagar/receber, cheques, créditos, boletos e fluxo de caixa.</p>
+        </div>
+        <div class="mod">
+          <h3>Produção</h3>
+          <p>Extrusão, painel de fornos, queimas, desenforno e qualidade.</p>
+        </div>
+        <div class="mod">
+          <h3>Fiscal</h3>
+          <p>NF-e, NFC-e, CT-e, MDF-e e CC-e com certificado e DANFE.</p>
         </div>
       </div>
     </div>
+  </section>
 
+  <section id="extras">
+    <div class="wrap">
+      <div class="section-kicker">Flexibilidade</div>
+      <h2 class="section-title">Add-ons e condições</h2>
+      <p class="section-sub">Amplie o plano conforme a operação cresce — sem surpresas de taxa única.</p>
 
-    <div class="site-section" id="features-section">
-      <div class="container">
-        <div class="row mb-5 justify-content-center text-center" data-aos="fade-up">
-          <div class="col-7 text-center  mb-5">
-            <h2 class="section-title">Módulos do Ceramic </h2>
-            <p class="lead">Confira como nosso sistema é organizado</p>
-          </div>
+      <div class="split">
+        <div class="panel">
+          <h3>Add-ons</h3>
+          <table class="simple">
+            <thead>
+              <tr><th>Item</th><th>Investimento</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Pacote +5 usuários<br /><span style="color:var(--muted);font-size:12px">mínimo 3 meses</span></td>
+                <td class="price">+ R$ 99,90/mês</td>
+              </tr>
+              <tr>
+                <td>CNPJ / cerâmica adicional<br /><span style="color:var(--muted);font-size:12px">a partir do Gestão</span></td>
+                <td class="price">+ R$ 119,90/mês</td>
+              </tr>
+              <tr>
+                <td>Módulo produção (fornos)<br /><span style="color:var(--muted);font-size:12px">Essencial e Gestão</span></td>
+                <td class="price">+ R$ 199,90/mês</td>
+              </tr>
+              <tr>
+                <td>RKW / custos industriais<br /><span style="color:var(--muted);font-size:12px">a partir do Completo</span></td>
+                <td class="price">+ R$ 149,90/mês</td>
+              </tr>
+              <tr>
+                <td>PSQ / qualidade<br /><span style="color:var(--muted);font-size:12px">a partir do Completo</span></td>
+                <td class="price">sob orçamento</td>
+              </tr>
+              <tr>
+                <td>Dia de implantação presencial</td>
+                <td class="price">R$ 990 + desloc.</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-        <div class="row align-items-stretch">
-          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up">
-            <div class="unit-4 d-block">
-              <div class="unit-4-icon mb-3">
-                <span class="icon-wrap"><span class="text-primary icon-store_mall_directory"></span></span>
-              </div>
-              <div>
-                <h3>Comercial</h3>
-                <p>Realize compras e vendas de maneira prática e rápida.</p>
-              </div>
-            </div>
-
-          </div>
-          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="100">
-
-            <div class="unit-4 d-block">
-              <div class="unit-4-icon mb-3">
-                <span class="icon-wrap"><span class="text-primary icon-store_mall_directory"></span></span>
-              </div>
-              <div>
-                <h3>Análise de dados</h3>
-                <p>O Ceramic possui graficos e relatórios completos e precisos, facilitando assim a tomada de decidões
-                  da empresa.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="200">
-            <div class="unit-4 d-block">
-              <div class="unit-4-icon mb-3">
-                <span class="icon-wrap"><span class="text-primary  icon-whatshot"></span></span>
-              </div>
-              <div>
-                <h3>Controle de produção</h3>
-                <p>Gerencie todo processo produtivo da sua empresa com apenas alguns cliques.</p>
-              </div>
-            </div>
-          </div>
-
-
-          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up">
-            <div class="unit-4 d-block">
-              <div class="unit-4-icon mb-3">
-                <span class="icon-wrap"><span class="text-primary icon-settings_backup_restore"></span></span>
-              </div>
-              <div>
-                <h3>Atualizações gratuitas</h3>
-                <p>Todos os planos são contemplados com atualizações gratuitas e continuas.</p>
-                <p><a href="#">Consulte os planos</a></p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="100">
-            <div class="unit-4 d-block">
-              <div class="unit-4-icon mb-3">
-                <span class="icon-wrap"><span class="text-primary icon-local_shipping"></span></span>
-              </div>
-              <div>
-                <h3>Organização de expedições</h3>
-                <p>Mantenha o controle total das entregas das realizadas ou recebimentos de compras.</p>
-
-              </div>
-            </div>
-
-
-          </div>
-
-          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="200">
-            <div class="unit-4 d-block">
-              <div class="unit-4-icon mb-3">
-                <span class="icon-wrap"><span class="text-primary icon-attach_money"></span></span>
-              </div>
-              <div>
-                <h3>Financeiro</h3>
-                <p>Acesso rápido aos relatórios de receitas e despesas, demonstrativo de resultados e resumo do fluxo de
-                  caixa.</p>
-              </div>
-            </div>
-          </div>
-
+        <div class="panel">
+          <h3>O que está incluso</h3>
+          <ul class="note-list">
+            <li>Hospedagem em nuvem, atualizações e suporte por mensagem no horário comercial.</li>
+            <li>Treinamento por vídeo conforme o plano (quantidade alinhada na implantação).</li>
+            <li>Importação inicial de cadastros (clientes, fornecedores, produtos) sob escopo acordado.</li>
+            <li>Contrato mensal com fidelidade mínima de 3 meses; cancelamento com aviso prévio de 30 dias.</li>
+            <li>Customizações e integrações externas sob orçamento à parte.</li>
+          </ul>
         </div>
       </div>
     </div>
-    <div class="feature-big">
-      <div class="container">
-        <div class="row mb-5 site-section">
-          <div class="col-lg-8" data-aos="fade-right">
-            <img src="images\sistema\GPD.png" alt="Image" class="img-fluid">
-          </div>
-          <div class="col-lg-4 pl-lg-5 ml-auto mt-md-5">
-            <h2 class="text-black">Controle os resultados da sua produção</h2>
-            <p class="mb-4">Conheça sua produção diária, seu estoque, os principais motivos de downtime e a produtividade dos seus funcionários.</p>
-          </div>
-        </div>
+  </section>
 
-        <div class="mt-5 row mb-5 site-section ">
-          <div class="col-lg-8 order-1 order-lg-2" data-aos="fade-left">
-            <img src="images/sistema\relatoriovendas.png" alt="Image" class="img-fluid">
-          </div>
-          <div class="col-lg-4 pr-lg-5 mr-auto mt-5 order-2 order-lg-1">
-            <h2 class="text-black">Consulte os resultados das vendas de forma prática</h2>
-            <p class="mb-4">Acompanhe suas vendas, os produtos que mais vendem, o desempenho dos seus vendedores e muito mais com o auxílio de relatórios e gráficos.</p> 
+  <section class="alt" id="quem-somos">
+    <div class="wrap">
+      <div class="section-kicker">Quem somos</div>
+      <h2 class="section-title">Trivy: da fábrica cerâmica à decisão</h2>
+      <p class="section-sub">
+        Não nascemos de um pitch genérico de ERP. Nascemos dentro do chão de fábrica —
+        estudando cerâmica desde 2012 e construindo software de gestão industrial desde 2013.
+      </p>
 
-          </div>
-        </div>
-
-        <div class="row mb-5 site-section">
-          <div class="col-lg-8" data-aos="fade-right">
-            <img src="images/sistema\Financeiro-recebimentos.png" alt="Image" class="img-fluid">
-          </div>
-          <div class="col-lg-4 pl-lg-5 ml-auto mt-md-5">
-            <h2 class="text-black">Relatórios financeiros</h2>
-            <p class="mb-4">Acompanhe suas contas a receber e não perca os prazos para seus pagamentos. Tudo de forma simples e bem prática!</p>
-
-
-          </div>
-        </div>
-
-        <div class="mt-5 row mb-5 site-section ">
-          <div class="col-lg-8 order-1 order-lg-2" data-aos="fade-left">
-            <img src="images/sistema\CDE-realizadas.png" alt="Image" class="img-fluid">
-          </div>
-          <div class="col-lg-4 pr-lg-5 mr-auto mt-5 order-2 order-lg-1">
-            <h2 class="text-black">Tenha total controle das entregas dos seus produtos</h2>
-            <!-- <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem neque nisi architecto
-              autem molestias corrupti officia veniam</p> -->
-          </div>
-        </div>
+      <div class="about-story">
+        <p>
+          Em uma cerâmica, o problema quase nunca é “falta de sistema”. É a <strong>dispersão</strong>:
+          planilha de venda, caderno de estoque, quadro de forno, boleto em outro lugar,
+          nota fiscal em mais um. Cada setor “funciona”, mas a gerência perde o fio —
+          e a informação chega tarde, incompleta ou contraditória.
+        </p>
+        <p>
+          A Trivy existe para fechar esse ciclo. Unimos gestão de fábrica (comercial, produção,
+          estoque, financeiro) com emissão fiscal no mesmo ecossistema — para que o que acontece
+          na extrusão, na queima e na expedição vire dado confiável, e o dado vire decisão.
+        </p>
       </div>
-    </div>
 
-
-    <div class="site-section bg-light" id="about-section">
-      <div class="container">
-        <div class="row mb-5">
-          <div class="col-12 text-center">
-            <h2 class="section-title mb-3">Sobre o Ceramic</h2>
-          </div>
-        </div>
-        <div class="row mb-5">
-          <div class="col-lg-8" data-aos="fade-right">
-            <img src="images/sistema\Administrativo.png" alt="Image" class="img-fluid">
-          </div>
-          <div class="col-lg-4 ml-auto pl-lg-5">
-            <h2 class="text-black mb-4 h3 font-weight-bold">Nosso objetivo</h2>
-            <p class="mb-4">Nosso objetivo é fornecer através do CERAMIC as melhores práticas de gestão para sua empresa. 
-              De forma simples e objetiva, você registrará os dados, nós armazenaremos e os transformaremos em informações importantes para suas decisões.</p>
-          </div>
-        </div>
+      <div class="about-pillars">
+        <article class="pillar">
+          <div class="pillar-step">01 · Situação</div>
+          <h3>Conheça</h3>
+          <p>
+            Controles paralelos, estoque de bloco em secagem/queima difícil de acompanhar,
+            expedição com entregas parciais, contas a receber imprecisas e fiscal desconectado
+            da operação. Sem um mapa único, a fábrica reage — não antecipa.
+          </p>
+        </article>
+        <article class="pillar">
+          <div class="pillar-step">02 · Processo</div>
+          <h3>Conquiste</h3>
+          <p>
+            Domínio de ponta a ponta: pedido → produção → estoque → entrega → cobrança → nota.
+            Implantação objetiva, módulos que conversam entre si e suporte de quem entende
+            o vocabulário da cerâmica — não só de TI.
+          </p>
+        </article>
+        <article class="pillar">
+          <div class="pillar-step">03 · Resultado</div>
+          <h3>Converta</h3>
+          <p>
+            Operação vira informação: produtividade, inadimplência, custo, expedição e
+            conformidade fiscal no mesmo olhar. Menos retrabalho, menos “sistema paralelo”,
+            mais tempo para o que importa — produzir e vender.
+          </p>
+        </article>
       </div>
-    </div>
 
-    <div class="site-section" id="our-team-section">
-      <div class="container">
-        <div class="row mb-5 justify-content-center text-center" data-aos="fade-up">
-          <div class="col-7 text-center  mb-5">
-            <h2 class="section-title">Nosso time</h2>
-            <p class="lead">O Ceramic conta com pessoas qualificadas em áreas de extrema importância pro setor cerâmico.
+      <div class="section-kicker" style="margin-bottom:10px">Liderança</div>
+      <h2 class="section-title" style="font-size:22px;margin-bottom:8px">Quem constrói a Trivy</h2>
+      <p class="section-sub" style="margin-bottom:22px">
+        Um time enxuto, com experiência de campo e de código — o mesmo que acompanha
+        a implantação e a evolução do produto.
+      </p>
+
+      <div class="about-team">
+        <article class="team-card">
+          <img class="team-photo" src="images/hugo.jpg" alt="Hugo Pablo" width="88" height="88" loading="lazy" />
+          <div>
+            <h3>Hugo Pablo</h3>
+            <div class="team-role">Desenvolvimento · Análise de sistemas</div>
+            <p>
+              Desenvolvedor e analista de sistemas com sólida experiência em software
+              de gestão industrial e engajamento agressivo no setor cerâmico —
+              do produto ao suporte técnico que resolve no chão de fábrica.
             </p>
           </div>
-        </div>
-
-        <div class="row">
-
-          <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
-            <div class="person">
-              <div class="bio-img">
-                <figure>
-                  <img src="images/tiago-edit.jpeg" alt="Image" class="img-fluid">
-                </figure>
-                <!-- <div class="social">
-                  <a href="#"><span class="icon-facebook"></span></a>
-                  <a href="#"><span class="icon-twitter"></span></a>
-                  <a href="#"><span class="icon-instagram"></span></a>
-                </div> -->
-              </div>
-              <h2 class="text-black h1">Tiago Diógenes</h2>
-              <span class="sub-title d-block mb-3">Financeiro</span>
-              
-            </div>
-          </div>
-
-<!--           <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
-            <div class="person">
-              <div class="bio-img">
-                <figure>
-                  <img src="images/ana.jpg" alt="Image" class="img-fluid">
-                </figure>
-                <!-- <div class="social">
-                  <a href="#"><span class="icon-facebook"></span></a>
-                  <a href="#"><span class="icon-twitter"></span></a>
-                  <a href="#"><span class="icon-instagram"></span></a>
-                </div> 
-              </div>
-              <h2 class="text-black h1">Ana Alves</h2>
-              <span class="sub-title d-block mb-3">Economista</span>
-              
-            </div>
-          </div> -->
-
-         <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="300">
-            <div class="person">
-              <div class="bio-img">
-                <figure>
-                  <img src="images/hugo.jpg" alt="Image" class="img-fluid">
-                </figure>
-                  <div class="social">
-                  <a href="#"><span class="icon-facebook"></span></a>
-                  <a href="#"><span class="icon-twitter"></span></a>
-                  <a href="#"><span class="icon-instagram"></span></a>
-                </div> 
-              </div>
-              <h2 class="text-black h1">Hugo Pablo</h2>
-              <span class="sub-title d-block mb-3">Desenvolvimento</span>
-              
-            </div>
-          </div>
-
-<!--           <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up">
-            <div class="person">
-              <div class="bio-img">
-                <figure>
-                  <img src="images/albert.jpg" alt="Image" class="img-fluid">
-                </figure>
-                <!-- <div class="social">
-                  <a href="#"><span class="icon-facebook"></span></a>
-                  <a href="#"><span class="icon-twitter"></span></a>
-                  <a href="#"><span class="icon-instagram"></span></a>
-                </div> 
-              </div>
-              <h2 class="text-black h1">Albert Morato</h2>
-              <span class="sub-title d-block mb-3">Suporte</span>
-              
-              </p>
-            </div>
-          </div> -->
-        </div>
-      </div>
-    </div>
-
-    <div class="site-section bg-image2 overlay" id="contact-section"
-      style="background-image: url('images/hero_1.jpg');">
-      <div class="container">
-        <div class="row mb-5">
-          <div class="col-12 text-center">
-            <h2 class="section-title mb-3 text-white">Contato</h2>
-          </div>
-        </div>
-        <div class="row justify-content-center">
-          <div class="col-lg-7 mb-5">
-
-            <form action="mailto:comercial@ceramic.com.br" method="post" enctype="text/plain" class="p-5 bg-white">              
-
-<!--               <div class="row form-group">
-                <div class="col-md-8 mb-3 mb-md-0">
-                  <label class="text-black" for="message">Suporte</label><br />
-                  Albert de Almeida Morato<br />
-                  Contato: 55 84 99137-6576<br />
-                  albert.morato@ceramic.com.br<br />
-                </div>
-              </div> -->
-
-              <!--<div class="row form-group">
-                <div class="col-md-8 mb-3 mb-md-0">
-                  <label class="text-black" for="message">Suporte</label><br />
-                  Hugo Pablo Tomas de Araujo<br />
-                  Contato: 55 84 991261979<br />
-                  hugo.pablo@ceramic.com.br<br />
-                </div>
-              </div>-->
-
-              <div class="row form-group">
-                <div class="col-md-12">
-                  <label class="text-black" for="message">Comercial</label><br />                  
-                  Contato: 55 84 99660-0158<br />
-<!--                   viniciuscostalima@gmail.com<br /> -->
-                </div>
-              </div>
-
-              <div class="row form-group">
-
-
-                <!-- <div class="row form-group">
-                <div class="col-md-12">
-                  <label class="text-black" for="message">Mensagem</label>
-                  <textarea name="message" id="message" cols="30" rows="7" class="form-control rounded-0"
-                    placeholder="Deixe aqui sua mensagem..."></textarea>
-                </div>
-              </div>
-
-              <div class="row form-group">
-                <div class="col-md-12">
-                  <input type="submit" value="Enviar" class="btn btn-primary mr-2 mb-2">
-                </div>
-              </div> -->
-
-
-            </form>
-          </div>
-
-        </div>
-
-      </div>
-    </div>
-
-    <div class="footer py-5 text-center">
-      <div class="container">
-        <div class="row mb-5">
-          <div class="col-12">
-            <p class="mb-0">
-              <!-- <a href="#" class="p-3"><span class="icon-facebook"></span></a> -->
-              <!-- <a href="#" class="p-3"><span class="icon-twitter"></span></a> -->
-              <a href="https://www.instagram.com/ceramic_sistema/" class="p-3"><span class="icon-instagram"></span></a>
-              <!-- <a href="#" class="p-3"><span class="icon-linkedin"></span></a> -->
-              <!-- <a href="#" class="p-3"><span class="icon-pinterest"></span></a> -->
+        </article>
+        <article class="team-card">
+          <img class="team-photo" src="images/tiago.jpg" alt="Tiago Diógenes" width="88" height="88" loading="lazy" />
+          <div>
+            <h3>Tiago Diógenes</h3>
+            <div class="team-role">Engenharia · Operações e produto</div>
+            <p>
+              Engenheiro de Produção (UFRN). Desde 2012 lidera o desenho de sistemas
+              de gestão para indústria cerâmica vermelha — produtividade, comercial,
+              financeiro e desempenho — com visão de processo e resultado.
             </p>
           </div>
+        </article>
+      </div>
+
+      <div class="about-facts">
+        <span class="about-fact"><strong>2012</strong> — início do estudo e dos sistemas para cerâmica</span>
+        <span class="about-fact"><strong>2013</strong> — atuação contínua em software de gestão industrial</span>
+        <span class="about-fact"><strong>Hoje</strong> — Trivy Fábrica + Fiscal, um ecossistema só</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="contato">
+    <div class="wrap">
+      <div class="cta">
+        <div>
+          <h2>Vamos desenhar o plano da sua fábrica</h2>
+          <p>
+            Conte quantas unidades, usuários e se já emite nota — montamos a
+            proposta sob medida em poucos dias.
+          </p>
         </div>
-        <div class="row">
-          <div class="col-md-12">
-            <p class="mb-0">
-              <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-              Copyright &copy;
-              <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made by
-              <a href="https://colorlib.com" target="_blank">Colorlib</a>
-              <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-            </p>
-          </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <a class="btn btn-primary" href="https://wa.me/5584996600158?text=Ol%C3%A1!%20Gostaria%20de%20uma%20proposta%20da%20Trivy%20F%C3%A1brica." target="_blank" rel="noopener noreferrer">Falar no WhatsApp</a>
         </div>
       </div>
     </div>
-  </div> <!-- .site-wrap -->
+  </section>
 
-  <script src="js/jquery-3.3.1.min.js"></script>
-  <script src="js/jquery-ui.js"></script>
-  <script src="js/popper.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/owl.carousel.min.js"></script>
-  <script src="js/jquery.countdown.min.js"></script>
-  <script src="js/bootstrap-datepicker.min.js"></script>
-  <script src="js/jquery.easing.1.3.js"></script>
-  <script src="js/aos.js"></script>
-  <script src="js/jquery.fancybox.min.js"></script>
-  <script src="js/jquery.sticky.js"></script>
-
-
-  <script src="js/main.js"></script>
-
+  <footer class="wrap">
+    <div>
+      <strong style="color:var(--brand-blue)">Trivy</strong> Fábrica<br />
+      Proposta comercial — valores sujeitos a confirmação na contratação.
+    </div>
+    <div style="text-align:right">
+      Documento para apresentação ao cliente<br />
+      Atualizado em agosto de 2026
+    </div>
+  </footer>
 </body>
-
 </html>
